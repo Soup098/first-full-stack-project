@@ -1,0 +1,12 @@
+{
+  "name": "first-full-stack-project",
+  "version": "1.0.0",
+  "description": "First galavant into full stack development",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Alex Surprenant",
+  "license": "ISC"
+}
