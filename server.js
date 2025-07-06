@@ -1,16 +1,15 @@
 import http from "node:http"
+import { getDataFromDB } from "./database/db.js"
 
 const PORT = 8000
 
-const server = http.createServer((request, response) => {
+const server = http.createServer(async (request, response) => {
+    const destinations = await getDataFromDB()
 
     if(request.url === "/api" && request.method === "GET"){
-        response.write("this is a GET request to the API endpoint \n")
+        response.end(JSON.stringify(destinations))
     }
 
-    response.write("this is some date \n")
-    response.write("this is also some data \n")
-    response.end("You are viewing data straight from the server.js file. a GET request has been made and this is the response")
 })
 
 server.listen(PORT, () => console.log(`the server is working. its running on port; ${PORT}`))
